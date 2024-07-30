@@ -5,9 +5,9 @@ import { NavLink } from 'react-router-dom';
 function NavBar() {
     const [checked, setChecked] = useState(false);
 
-    const handleChange = () => {
-        setChecked(!checked);
-    };
+    // const handleChange = () => {
+    //     setChecked(!checked);
+    // };
     return (
         <div className="NavBar">
 

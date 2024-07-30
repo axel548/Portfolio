@@ -1,9 +1,5 @@
 import port1 from '../img/portImages/munam.jpg';
-import port2 from '../img/portImages/port1.jpg';
-import port3 from '../img/portImages/e-commerce.jpg';
 import port4 from '../img/portImages/console.jpg';
-import port6 from '../img/portImages/port5.jpg';
-import port7 from '../img/portImages/port6.jpg';
 import port8 from '../img/portImages/port8.png';
 
 // const portfolios = [
