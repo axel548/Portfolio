@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+// { useState }
 import avatar from '../img/personales/image_1.jpg';
 import { NavLink } from 'react-router-dom';
 
 function NavBar() {
-    const [checked, setChecked] = useState(false);
+    // const [checked, setChecked] = useState(false);
 
     // const handleChange = () => {
     //     setChecked(!checked);
