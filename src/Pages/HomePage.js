@@ -1,5 +1,4 @@
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faGithub,faLinkedin  } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function HomePage() {
@@ -7,7 +6,7 @@ function HomePage() {
         <div className="HomePage">
             <header className="hero">
                 <h1 className="hero-text">
-                    Hi, I am
+                    Hi, I am{' '}
                     <span> Axel Lopez</span>
                 </h1>
                 <p className="h-sub-text">

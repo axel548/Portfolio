@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 function Categories({filter, categories}) {
     return (
@@ -10,6 +11,11 @@ function Categories({filter, categories}) {
           }  
         </div>
     )
+}
+
+Categories.propTypes = {
+    filter: PropTypes.string.isRequired,
+    categories: PropTypes.string.isRequired,
 }
 
 export default Categories;

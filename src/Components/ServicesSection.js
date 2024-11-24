@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 function ServicesSection({ image, title, text }) {
     return (
@@ -14,6 +15,12 @@ function ServicesSection({ image, title, text }) {
             </div>
         </div>
     )
+}
+
+ServicesSection.propTypes = {
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
 }
 
 export default ServicesSection;

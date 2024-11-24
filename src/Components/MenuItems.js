@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function MenuItems({menuItem}) {
     return (
@@ -26,6 +27,21 @@ function MenuItems({menuItem}) {
             }
         </div>
     )
+}
+
+MenuItems.propTypes = {
+    menuItem: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+            image: PropTypes.string.isRequired,
+            link1: PropTypes.string.isRequired,
+            icon1: PropTypes.node.isRequired,
+            link2: PropTypes.string,
+            icon2: PropTypes.node,
+            title: PropTypes.string.isRequired,
+            content: PropTypes.string.isRequired,
+        })
+    ).isRequired,
 }
 
 export default MenuItems;

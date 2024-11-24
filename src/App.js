@@ -22,15 +22,21 @@ function App() {
 
     <BrowserRouter>
       <div className="App">
-        <div class={`sidebar ${navToggle ? 'nav-toggle' : ''}`}>
+        <div className={`sidebar ${navToggle ? 'nav-toggle' : ''}`}>
           <NavBar />
         </div>
-        <div className="nav-btn" onClick={navClick} >
+        {/* <button className="nav-btn" onClick={navClick} tabIndex="0">
+          <div className="line-1"></div>
+          <div className="line-2"></div>
+          <div className="line-3"></div>
+        </button> */}
+        <div className="nav-btn" onClick={navClick} tabIndex="0">
           <div className="line-1"></div>
           <div className="line-2"></div>
           <div className="line-3"></div>
         </div>
-        <div class="main-content">
+
+        <div className="main-content">
           <div className="content">
 
             <Routes>
