@@ -1,0 +1,64 @@
+name: CI/CD Pipeline
+
+on:
+    push:
+        branches:
+            - main
+
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    testing:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4.1.7
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: '16'
+      
+            - name: Install dependencies
+              run: npm install
+      
+            - name: Run tests
+              run: npm test
+    
+
+    image_build:
+        runs-on: ubuntu-latest
+        needs: [testing]
+        steps:         
+            - name: Build an image from Dockerfile
+              run: docker build --build-arg TOKEN_PAT_DEPLOY="${{ secrets.DEPLOY_DOCKER_TOKEN }}" --build-arg URL_REPOSITORY=axel548/portfolio.git -t app_portfolio:${{ github.sha }} .
+
+            - name: Run Trivy vulnerability scanner
+              uses: aquasecurity/trivy-action@0.28.0
+              with:
+                image-ref: 'app_portfolio:${{ github.sha }}'
+                format: 'table'
+                exit-code: '1'
+                ignore-unfixed: true
+                vuln-type: 'os,library'
+                severity: 'CRITICAL,HIGH'
+
+
+    deploy_image:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Deploy image to container registry
+              run: echo "Deploying..."
+
+
+    iac_build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Build IaC
+              run: echo "Building infrastructure..."
+              
